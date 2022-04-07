@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register page</title>
+</head>
+<body>
+
+	<a href="../index.html">Back to main page</a> <br>	
+	<a href="LoginPage.html">Login</a> <br> <br>
+	
+	<form class="RegisterForm" action="../RegisterController" method="post">
+		Username: <br>
+		<input type="text" name="userName"> <br>
+		Email: <br>
+		<input type="text" name="email"> <br>
+		Password: <br>
+		<input type="password" name="password"> <br>
+		Repeat password: <br>
+		<input type="password" name="repeatPassword"> <br>
+		Buyer: 
+		<input type="radio" checked name="typeUser" value="0">
+		Seller:
+		<input type="radio" name="typeUser" value="1">
+		Admin:
+		<input type="radio" name="typeUser" value="2"> <br>
+		<input type="submit" value="REGISTER">
+	
+	</form>
+</body>
+</html>
