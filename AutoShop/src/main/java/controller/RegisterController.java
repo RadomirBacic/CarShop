@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.User;
 import service.RegisterService;
 
 /**
@@ -52,9 +53,16 @@ public class RegisterController extends HttpServlet {
 				if (password.equals(repeatPassword)) {
 					if (isEmailOk) {
 						if (isUsernameOk) {
-						//All good,we continue to registration
-							
-							
+						//fill user
+							User user = service.fillUser(userName, email, password, repeatPassword, typeUser);
+						//save user in database
+							boolean writeUserInBase = service.writeUserInBase(user);
+							if (writeUserInBase) {
+								response.sendRedirect("htmlPages/RegisterSuccessfully.html");
+					
+							} else {
+								response.sendRedirect("htmlPages/UserNotRegister.html");
+							}
 						} else {
 							response.sendRedirect("htmlPages/IncorrectUsernamePage.html");
 						}
