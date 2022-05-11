@@ -2,6 +2,7 @@ package service;
 
 import common.CommonMethods;
 import dao.LoginDao;
+import model.User;
 import validation.Validation;
 
 public class LoginService {
@@ -15,5 +16,17 @@ public class LoginService {
 		commonMethods.writeParameters( userName, password);
 		
 	}
+
+	public boolean loginValidationUserPass(String userName, String password) {
+		
+		return validation.loginValidationUserPass(userName, password);
+	}
+
+	public User existsUserAndPassword(String userName, String password) {
+		
+		return loginDao.existsUserAndPassword(userName, password);
+	}
+
+	
 
 }

@@ -65,6 +65,15 @@ public class Validation {
 		System.out.println("All fields filled");
 		return true;
 	}
+
+	public boolean loginValidationUserPass(String userName, String password) {
+		if (userName == null || userName.isEmpty() && password == null || password.isEmpty()) {
+			System.out.println("Login username or password fields are empty!");
+			return false;
+		}
+		System.out.println("Login fields username and password are filled!");
+		return true;
+	}
 	
 
 	
