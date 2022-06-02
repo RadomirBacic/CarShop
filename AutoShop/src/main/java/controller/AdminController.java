@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
+import model.TypeUser;
 import service.AdminService;
 
 /**
@@ -27,14 +28,23 @@ public class AdminController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AdminService service = new AdminService();
 		
-		List<User> listOfUsers = new ArrayList<>();
-		listOfUsers = service.takeAllUsers();
+		String typeUser = request.getParameter("typeUser");
+		System.out.println("Parameter: " + typeUser);
 		
-		if (listOfUsers !=null) {
-			request.setAttribute("listOfUsers", listOfUsers);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("jspPages/ShowAllUsers.jsp");
+		TypeUser type = service.takeUserType(typeUser);
+		//Take all users depends on user type
+		List<User> users = service.backUserType(type);
+		
+		if (users != null && !users.isEmpty()) {
+			request.setAttribute("users", users);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("jspPages/ShowUsers.jsp");
 			dispatcher.forward(request, response);
+		}else {
+			response.sendRedirect("jspPages/Admin.jsp");
 		}
+		
+		
+
 	}
 
 }

@@ -26,4 +26,19 @@ public class CommonMethods {
 		
 	}
 
+	public TypeUser takeUserType(String typeUser) {
+		
+		TypeUser type = null;
+		
+		if (typeUser.equals("buyer")) {
+			type = TypeUser.BUYER;
+		}else if (typeUser.equals("seller")) {
+			type = TypeUser.SELLER;
+		}
+		
+		return type;
+		
+	}
+
+
 }
