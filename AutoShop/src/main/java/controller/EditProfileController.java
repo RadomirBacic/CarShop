@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.User;
+import model.UserDetails;
 import service.EditProfileService;
 
 /**
@@ -40,6 +42,23 @@ public class EditProfileController extends HttpServlet {
 		System.out.println("City: " + city);
 		System.out.println("Street: " + street);
 		System.out.println("Id user: " + idUser);
+		
+		User user = service.takeUserId(idUser);
+		UserDetails details = service.takeUserDetailsFromUserId(user);
+		 
+		if (details == null) {
+			
+			response.sendRedirect("htmlPages/NoUserDetailsFound.html");
+		}else {
+			boolean editUserDetails = service.editUserDetails(firstName, lastName, phone, email, country, city, street, details);
+			if (editUserDetails) {
+				response.sendRedirect("htmlPages/EditSuccessfully.html");
+			}else {
+				response.sendRedirect("htmlPages/NoUserDetailsFound.html");
+			}
+		}
+		
+		
 		
 	}
 

@@ -12,7 +12,7 @@
 <body>
 	<jsp:useBean id="user" scope="session" class="model.User"></jsp:useBean>
 	<h1>Edit user with username: ${user.userName}</h1>
-	<a href="Seller.jsp">Back to seller page</a>
+	<a href="Seller.jsp">Back to seller page</a> <br> <br>
 	
 	<form action="../EditProfileController" method="post">
 		
