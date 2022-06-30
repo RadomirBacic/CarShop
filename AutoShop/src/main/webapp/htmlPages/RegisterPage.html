@@ -3,27 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Register page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link 
+	rel="stylesheet"
+	type="text/css"
+	href="../css/style.css">
 </head>
 <body>
-
-	<a href="../index.html">Back to main page</a> <br>	
-	<a href="LoginPage.html">Login</a> <br> <br>
 	
-	<form class="RegisterForm" action="../RegisterController" method="post">
-		Username: <br>
-		<input type="text" name="userName"> <br>
-		Email: <br>
-		<input type="text" name="email"> <br>
-		Password: <br>
-		<input type="password" name="password"> <br>
-		Repeat password: <br>
-		<input type="password" name="repeatPassword"> <br>
-		Buyer: 
-		<input type="radio" checked name="typeUser" value="0">
-		Seller:
-		<input type="radio" name="typeUser" value="1"> <br>
-		<input type="submit" value="REGISTER">
-	
-	</form>
+	<ul class="nav justify-content-center border-bottom">
+		<li class="nav-item">
+			<a class="nav-link" href="../index.html">Back to main page</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="LoginPage.html">Login</a>				
+		</li>
+	</ul>
+	<div class="container d-flex main-div">
+			<div class="row align-self-center w-100">
+				<div class="col-6 mx-auto main-div-shadow">
+					<form class="RegisterForm row d-block text-center" action="../RegisterController" method="post">
+						<div class="col-md-6 m-auto">
+							<label> Username: </label> <br>
+							<input type="text" name="userName"> <br>
+						</div>
+						<div class="col-md-6 m-auto">
+							<label> Email: </label> <br>
+							<input type="text" name="email"> <br>
+						</div>
+						<div class="col-md-6 m-auto">
+							<label> Password: </label> <br>
+							<input type="password" name="password"> <br>
+						</div>
+						<div class="col-md-6 m-auto">
+							<label>Repeat password: </label> <br>
+							<input type="password" name="repeatPassword"> <br>
+						</div>
+						<div class="col-md-6 m-auto">
+							<label>Buyer:  </label>
+							<input type="radio" checked name="typeUser" value="0">
+							<label>Seller: </label>
+							<input type="radio" name="typeUser" value="1"> <br>
+						</div>
+						<div class="col-md-12 mt-4">
+							<button class="text-center btn btn-dark" type="submit" value="REGISTER">REGISTER </button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 </body>
 </html>

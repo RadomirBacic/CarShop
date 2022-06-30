@@ -15,7 +15,13 @@
 	<jsp:useBean id="details" scope="request" class="model.UserDetails"></jsp:useBean>
 	
 	<h1>User ${details.firstName} ${details.lastName} profile</h1>
-	<a href="jspPages/Seller.jsp">Back to HOME page</a> <br> <br> <br>
+	<c:if test="${user.typeUser eq 'BUYER'}">
+	<a href="jspPages/Buyer.jsp">Back to buyer page</a> <br> <br>
+	</c:if> 
+	
+	<c:if test="${user.typeUser eq 'SELLER'}">
+	<a href="jspPages/Seller.jsp">Back to seller page</a> <br> <br>
+	</c:if> 
 	
 	<img alt="Profile picture" src="profilePhotos/${details.firstName}.jfif">
 	

@@ -12,7 +12,14 @@
 <body>
 	<jsp:useBean id="user" scope="session" class="model.User"></jsp:useBean>
 	<h1>Edit user with username: ${user.userName}</h1>
+	
+	<c:if test="${user.typeUser eq 'BUYER'}">
+	<a href="Buyer.jsp">Back to buyer page</a> <br> <br>
+	</c:if> 
+	
+	<c:if test="${user.typeUser eq 'SELLER'}">
 	<a href="Seller.jsp">Back to seller page</a> <br> <br>
+	</c:if> 
 	
 	<form action="../EditProfileController" method="post">
 		

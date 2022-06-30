@@ -1,2 +1,12 @@
 @charset "UTF-8";
+.main-div {
+	min-height: 100vh;
+}
 
+.main-div-shadow {
+	border: 2px solid #bcb7b7;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 1px 5px 15px 2px grey;
+	
+}
